@@ -1,34 +1,32 @@
+# Laravel Installer
 
-# License Manager
-
-License Manager is a robust PHP package designed to help you easily manage software licensing with ease and security. This package offers essential tools to validate, generate, and manage license keys, ensuring your applications are protected against unauthorized usage.
+Laravel Installer is a Laravel package designed for installation and configuration. This package provides essential tools to help you set up and configure Laravel applications with ease.
 
 ## Features
 
-- **License Key Generation**: Easily generate secure license keys for your software.
-- **License Validation**: Validate license keys for authenticity and restrict usage.
-- **Domain-based Validation**: Ensure that the application is used only on authorized domains.
-- **Secure License Storage**: Keep license data stored securely.
-- **Laravel Compatibility**: Fully compatible with Laravel and other PHP frameworks.
+- **Easy Installation**: Streamlined installation process for Laravel applications.
+- **Configuration Management**: Easily manage and set up your application configurations.
+- **Environment Setup**: Automated environment setup and configuration.
+- **Database Configuration**: Simple database setup and management.
+- **Laravel Compatibility**: Fully compatible with Laravel 8.x and above.
 
 ## Installation
 
 To install this package via Composer, use the following command:
 
-```bash
-composer require dev3bdulrahman/license-manager
-```
+
+composer require dev3bdulrahman/laravel-installer
+
 
 ## Usage
 
-Once installed, you can start using the License Manager by importing the relevant classes and configuring the license verification logic according to your needs.
+Once installed, you can start using the Laravel Installer by following the setup instructions provided by the package.
 
-```php
-use Dev3bdulrahman\LicenseManager\LicenseChecker;
 
-$licenseChecker = new LicenseChecker();
-$isValid = $licenseChecker->validateLicense('your-license-key');
-```
+use Dev3bdulrahman\Installer\InstallerManager;
+
+// Implementation details will be provided in the documentation
+
 
 ## Documentation
 
@@ -46,5 +44,4 @@ If you have any questions or issues, feel free to open an issue on GitHub or con
 
 You can view the source code and contribute to this package by visiting the GitHub repository:
 
-[GitHub Repository](https://github.com/Dev-3bdulrahman/license-manager)
-
+[GitHub Repository](https://github.com/Dev-3bdulrahman/laravel-installer)
