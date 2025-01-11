@@ -2,13 +2,21 @@
 
 namespace Dev3bdulrahman\Installer\Middleware;
 
-use Closure;
 use Illuminate\Http\Request;
 
 class InstallerMiddleware
 {
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, \Closure $next)
     {
+        // Check environment settings
+        if (env('SESSION_DRIVER') === 'database') {
+            $this->updateEnvFile('SESSION_DRIVER', 'file');
+        }
+
+        if (env('DB_CONNECTION') === 'sqlite') {
+            $this->updateEnvFile('DB_CONNECTION', 'mysql');
+        }
+
         // Check if application is already installed
         if ($this->isInstalled() && !$this->isInstallerRoute($request)) {
             return $next($request);
@@ -35,5 +43,16 @@ class InstallerMiddleware
     private function isInstallerRoute(Request $request)
     {
         return str_starts_with($request->path(), 'install');
+    }
+
+    private function updateEnvFile($key, $value)
+    {
+        $path = base_path('.env');
+
+        if (file_exists($path)) {
+            $content = file_get_contents($path);
+            $content = preg_replace("/^{$key}=.*/m", "{$key}={$value}", $content);
+            file_put_contents($path, $content);
+        }
     }
 }
