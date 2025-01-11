@@ -1,7 +1,7 @@
 <?php
 
-use YourNamespace\Installer\Controllers\InstallerController;
-use YourNamespace\Installer\Middleware\InstallerMiddleware;
+use dev3bdulrahman\Installer\Controllers\InstallerController;
+use dev3bdulrahman\Installer\Middleware\InstallerMiddleware;
 
 Route::middleware([InstallerMiddleware::class])->group(function () {
     Route::group(['prefix' => 'install', 'middleware' => ['web'], 'as' => 'installer.'], function () {

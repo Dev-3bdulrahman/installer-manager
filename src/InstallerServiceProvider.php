@@ -1,9 +1,9 @@
 <?php
 
-namespace YourNamespace\Installer;
+namespace dev3bdulrahman\Installer;
 
 use Illuminate\Support\ServiceProvider;
-use YourNamespace\Installer\Middleware\InstallerMiddleware;
+use dev3bdulrahman\Installer\Middleware\InstallerMiddleware;
 
 class InstallerServiceProvider extends ServiceProvider
 {

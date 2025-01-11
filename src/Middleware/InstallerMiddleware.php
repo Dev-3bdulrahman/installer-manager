@@ -1,6 +1,6 @@
 <?php
 
-namespace YourNamespace\Installer\Middleware;
+namespace dev3bdulrahman\Installer\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

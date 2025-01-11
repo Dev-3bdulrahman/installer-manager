@@ -1,11 +1,11 @@
 <?php
 
-namespace YourNamespace\Installer\Controllers;
+namespace dev3bdulrahman\Installer\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class InstallerController extends Controller
 {
@@ -50,22 +50,22 @@ class InstallerController extends Controller
             config(['database.connections.mysql.database' => $request->db_name]);
             config(['database.connections.mysql.username' => $request->db_user]);
             config(['database.connections.mysql.password' => $request->db_password]);
-            
+
             DB::purge('mysql');
             DB::reconnect('mysql');
 
             // Create database if it doesn't exist
             DB::statement("CREATE DATABASE IF NOT EXISTS `{$request->db_name}`");
-            
+
             // Run migrations
             Artisan::call('migrate:fresh', ['--force' => true]);
-            
+
             // Mark as installed
             $this->markAsInstalled();
-            
+
             return redirect('/')->with('success', 'Installation completed successfully');
         } catch (\Exception $e) {
-            return back()->with('error', 'Database configuration failed: ' . $e->getMessage());
+            return back()->with('error', 'Database configuration failed: '.$e->getMessage());
         }
     }
 
@@ -87,6 +87,6 @@ class InstallerController extends Controller
 
     private function markAsInstalled()
     {
-        file_put_contents(storage_path('installed'), 'Installation completed on ' . date('Y-m-d H:i:s'));
+        file_put_contents(storage_path('installed'), 'Installation completed on '.date('Y-m-d H:i:s'));
     }
 }
