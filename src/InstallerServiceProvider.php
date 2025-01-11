@@ -1,8 +1,9 @@
 <?php
 
-namespace dev3bdulrahman\Installer;
+namespace YourNamespace\Installer;
 
 use Illuminate\Support\ServiceProvider;
+use YourNamespace\Installer\Middleware\InstallerMiddleware;
 
 class InstallerServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,10 @@ class InstallerServiceProvider extends ServiceProvider
             __DIR__.'/config/installer.php' => config_path('installer.php'),
             __DIR__.'/views' => resource_path('views/vendor/installer'),
         ]);
+
+        // Register middleware
+        $router = $this->app['router'];
+        $router->aliasMiddleware('installer', InstallerMiddleware::class);
     }
 
     public function register()
