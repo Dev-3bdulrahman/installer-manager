@@ -10,7 +10,7 @@ class InstallerServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/routes/web.php');
         $this->loadViewsFrom(__DIR__.'/views', 'installer');
-
+        
         $this->publishes([
             __DIR__.'/config/installer.php' => config_path('installer.php'),
             __DIR__.'/views' => resource_path('views/vendor/installer'),
