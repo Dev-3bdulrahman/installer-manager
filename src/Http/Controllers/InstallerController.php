@@ -5,7 +5,6 @@ namespace Dev3bdulrahman\Installer\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
 
 class InstallerController extends Controller
 {
@@ -37,7 +36,18 @@ class InstallerController extends Controller
         ]);
 
         try {
-            // Update .env file first
+            // Test database connection
+            $connection = mysqli_connect(
+                $request->db_host,
+                $request->db_user,
+                $request->db_password
+            );
+
+            // Create database if it doesn't exist
+            $query = 'CREATE DATABASE IF NOT EXISTS '.$request->db_name;
+            mysqli_query($connection, $query);
+
+            // Update .env file
             $this->updateEnvironmentFile([
                 'DB_HOST' => $request->db_host,
                 'DB_DATABASE' => $request->db_name,
@@ -45,25 +55,11 @@ class InstallerController extends Controller
                 'DB_PASSWORD' => $request->db_password,
             ]);
 
-            // Test database connection with new credentials
-            config(['database.connections.mysql.host' => $request->db_host]);
-            config(['database.connections.mysql.database' => $request->db_name]);
-            config(['database.connections.mysql.username' => $request->db_user]);
-            config(['database.connections.mysql.password' => $request->db_password]);
-
-            DB::purge('mysql');
-            DB::reconnect('mysql');
-
-            // Create database if it doesn't exist
-            DB::statement("CREATE DATABASE IF NOT EXISTS `{$request->db_name}`");
-
             // Run migrations
             Artisan::call('migrate:fresh', ['--force' => true]);
 
-            // Mark as installed
-            $this->markAsInstalled();
-
-            return redirect('/')->with('success', 'Installation completed successfully');
+            return redirect()->route('installer.complete')
+                           ->with('success', 'Database configured successfully');
         } catch (\Exception $e) {
             return back()->with('error', 'Database configuration failed: '.$e->getMessage());
         }
@@ -83,10 +79,5 @@ class InstallerController extends Controller
         }
 
         file_put_contents($path, $content);
-    }
-
-    private function markAsInstalled()
-    {
-        file_put_contents(storage_path('installed'), 'Installation completed on '.date('Y-m-d H:i:s'));
     }
 }
