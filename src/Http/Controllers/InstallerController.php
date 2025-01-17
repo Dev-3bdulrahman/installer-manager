@@ -1,10 +1,11 @@
 <?php
 
-namespace Dev3bdulrahman\Installer\Controllers;
+namespace Dev3bdulrahman\Installer\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 
 class InstallerController extends Controller
 {
@@ -42,24 +43,24 @@ class InstallerController extends Controller
                 $request->db_user,
                 $request->db_password
             );
-
-            // Create database if it doesn't exist
-            $query = 'CREATE DATABASE IF NOT EXISTS '.$request->db_name;
-            mysqli_query($connection, $query);
-
             // Update .env file
             $this->updateEnvironmentFile([
-                'DB_HOST' => $request->db_host,
+                'DB_HOST' => '127.0.0.1',
+                'DB_PORT' => '3306',
                 'DB_DATABASE' => $request->db_name,
                 'DB_USERNAME' => $request->db_user,
                 'DB_PASSWORD' => $request->db_password,
             ]);
+            // Log::info('Database configuration successful'.$request->db_host.$request->db_name.$request->db_user.$request->db_password);
+            // Create database if it doesn't exist
+            // $query = 'CREATE DATABASE IF NOT EXISTS '.$request->db_name;
+            // mysqli_query($connection, $query);
 
             // Run migrations
             Artisan::call('migrate:fresh', ['--force' => true]);
 
-            return redirect()->route('installer.complete')
-                           ->with('success', 'Database configured successfully');
+            // return redirect()->route('installer.complete')
+            //                ->with('success', 'Database configured successfully');
         } catch (\Exception $e) {
             return back()->with('error', 'Database configuration failed: '.$e->getMessage());
         }
@@ -71,6 +72,14 @@ class InstallerController extends Controller
         $content = file_get_contents($path);
 
         foreach ($data as $key => $value) {
+            // Remove comment if key exists with comment
+            $content = preg_replace(
+                "/^#\s*{$key}=.*/m",
+                "{$key}={$value}",
+                $content
+            );
+
+            // Update or add the key-value pair
             $content = preg_replace(
                 "/^{$key}=.*/m",
                 "{$key}={$value}",
