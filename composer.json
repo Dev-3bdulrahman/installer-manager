@@ -1,5 +1,5 @@
 {
-    "name": "dev3bdulrahman/laravel-installer",
+    "name": "dev3bdulrahman/installer-manager",
     "description": "dev3bdulrahman/laravel-installer A Laravel package for installation and configuration",
     "type": "library",
     "require": {
