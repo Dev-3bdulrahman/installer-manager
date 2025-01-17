@@ -25,5 +25,6 @@
                 "Dev3bdulrahman\\Installer\\InstallerServiceProvider"
             ]
         }
-    }
+    },
+    "version": "1.0.0" 
 }
