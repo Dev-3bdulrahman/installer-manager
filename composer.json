@@ -1,0 +1,29 @@
+{
+    "name": "dev3bdulrahman/laravel-installer",
+    "description": "dev3bdulrahman/laravel-installer A Laravel package for installation and configuration",
+    "type": "library",
+    "require": {
+	"laravel/framework": "^8|^9|^10|^11"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dev3bdulrahman\\Installer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Dev-3bdulrahman",
+            "email": "me@3bdulrahman.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dev3bdulrahman\\Installer\\InstallerServiceProvider"
+            ]
+        }
+    }
+}
