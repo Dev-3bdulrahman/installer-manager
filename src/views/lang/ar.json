@@ -1,0 +1,20 @@
+{
+    "Congratulations!": "تهانينا",
+    "Welcome message": "مرحبا بك في مدير التثبيت",
+    "Structure message": "يرجى اتباع الخطوات التالية لتثبيت المشروع",
+    "Select Language": "اختر اللغة",
+    "next": "التالي",
+    "English": "الإنجليزية",
+    "Arabic": "العربية",
+    "System Requirements": "متطلبات النظام",
+    "Satisfied": "تم استيفاؤها",
+    "Not Satisfied": "لم يتم استيفاؤها",
+    "Continue to Database Setup": "المتابعة إلى إعداد قاعدة البيانات",
+    "Please fix the requirements before continuing": "يرجى إصلاح المتطلبات قبل المتابعة",
+    "Database Configuration": "تكوين قاعدة البيانات",
+    "Database Host": "مضيف قاعدة البيانات",
+    "Database Name": "اسم قاعدة البيانات",
+    "Database Username": "اسم مستخدم قاعدة البيانات",
+    "Database Password": "كلمة مرور قاعدة البيانات",
+    "Configure Database": "تكوين قاعدة البيانات"
+}

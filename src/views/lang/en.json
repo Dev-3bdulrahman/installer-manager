@@ -1,0 +1,21 @@
+
+{
+    "Congratulations!": "Congratulations!",
+    "Welcome message": "Welcome to the Installer Manager",
+    "Structure message": "Please follow the steps below to install the project",
+    "Select Language": "Select Language",
+    "next": "Next",
+    "English": "English",
+    "Arabic": "Arabic",
+    "System Requirements": "System Requirements",
+    "Satisfied": "Satisfied",
+    "Not Satisfied": "Not Satisfied",
+    "Continue to Database Setup": "Continue to Database Setup",
+    "Please fix the requirements before continuing": "Please fix the requirements before continuing",
+    "Database Configuration": "Database Configuration",
+    "Database Host": "Database Host",
+    "Database Name": "Database Name",
+    "Database Username": "Database Username",
+    "Database Password": "Database Password",
+    "Configure Database": "Configure Database"
+}
