@@ -2,9 +2,6 @@
 
 namespace Dev3bdulrahman\Installer;
 
-use Dev3bdulrahman\Installer\Middleware\InstallerMiddleware;
-use Dev3bdulrahman\Installer\Middleware\SetLocaleMiddleware;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
@@ -53,8 +50,8 @@ class InstallerServiceProvider extends ServiceProvider
             }
 
             $this->updateDefaultEnvironmentValues();
+            $this->updateAppStatus('env_status', 1);
         }
-        $this->updateAppStatus('env_status', 1);
     }
 
     protected function updateDefaultEnvironmentValues()
@@ -102,12 +99,6 @@ class InstallerServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/views/lang' => resource_path('lang'),
         ], 'lang');
-    }
-
-    protected function registerMiddleware()
-    {
-        // $this->app['router']->aliasMiddleware('language', SetLocaleMiddleware::class);
-        $this->app['router']->aliasMiddleware('installer', InstallerMiddleware::class);
     }
 
     public function register()

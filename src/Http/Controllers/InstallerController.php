@@ -118,6 +118,8 @@ class InstallerController extends Controller
             }
             mysqli_close($connection);
             $this->updateAppStatus('database_configured', true);
+
+            return redirect()->route('installer.userdata');
         } catch (\Exception $e) {
             return back()->with('error', 'Database configuration failed: '.$e->getMessage());
         }
