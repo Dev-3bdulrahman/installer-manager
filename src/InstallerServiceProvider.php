@@ -15,7 +15,6 @@ class InstallerServiceProvider extends ServiceProvider
         $this->setupRoutes();
         $this->setupViews();
         $this->publishAssets();
-        $this->registerMiddleware();
     }
 
     protected function initializeAppStatus()
