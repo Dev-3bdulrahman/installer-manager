@@ -1,6 +1,6 @@
-# Laravel Installer
+# Installer Manager
 
-Laravel Installer is a Laravel package designed for installation and configuration. This package provides essential tools to help you set up and configure Laravel applications with ease.
+installer manager is a Laravel package designed for installation and configuration. This package provides essential tools to help you set up and configure Laravel applications with ease.
 
 ## Features
 
@@ -15,7 +15,7 @@ Laravel Installer is a Laravel package designed for installation and configurati
 To install this package via Composer, use the following command:
 
 
-composer require dev3bdulrahman/laravel-installer
+composer require dev3bdulrahman/installer-manager
 
 
 ## Usage
@@ -44,4 +44,4 @@ If you have any questions or issues, feel free to open an issue on GitHub or con
 
 You can view the source code and contribute to this package by visiting the GitHub repository:
 
-[GitHub Repository](https://github.com/Dev-3bdulrahman/laravel-installer)
+[GitHub Repository](https://github.com/Dev-3bdulrahman/installer-manager)
