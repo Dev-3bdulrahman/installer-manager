@@ -1,4 +1,5 @@
 # Installer Manager
+<p align="center"><a target="_blank" href="https://3bdulrahman.com"><img src="/assets/images/Dev-3bdulrahman.png" alt="installer manager"></a></p>
 
 installer manager is a Laravel package designed for installation and configuration. This package provides essential tools to help you set up and configure Laravel applications with ease.
 
