@@ -131,6 +131,9 @@ class InstallerController extends Controller
             if (!$this->checkAppStatus('migrations_executed')) {
                 Artisan::call('migrate');
                 $this->updateAppStatus('migrations_executed', true);
+            } else {
+                Artisan::call('migrate:fresh');
+                $this->updateAppStatus('migrations_executed', true);
             }
 
             return view('installer::user-form');
