@@ -130,14 +130,15 @@ class InstallerController extends Controller
         if (!$this->checkAppStatus('first_user_created')) {
             if (!$this->checkAppStatus('migrations_executed')) {
                 Artisan::call('migrate');
-                $this->updateAppStatus('migrations_executed', true);
             } else {
                 Artisan::call('migrate:fresh');
-                $this->updateAppStatus('migrations_executed', true);
             }
+            $this->updateAppStatus('migrations_executed', true);
 
             return view('installer::user-form');
         }
+
+        return redirect()->route('installer.final-step');
     }
 
     public function insertFirstUserData(Request $request)
@@ -157,9 +158,16 @@ class InstallerController extends Controller
             ]);
 
             $this->updateAppStatus('first_user_created', true);
+
+            return redirect()->route('installer.final-step');
         } catch (\Exception $e) {
             return back()->with('error', 'Database configuration failed: '.$e->getMessage());
         }
+    }
+
+    public function finalStep()
+    {
+        return view('installer::final-step');
     }
 
     private function updateEnvironmentFile($data)

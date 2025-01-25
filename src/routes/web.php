@@ -12,5 +12,6 @@ Route::group(['prefix' => 'install', 'middleware' => ['web'], 'as' => 'installer
     Route::post('database', [InstallerController::class, 'configureDatabaseAndEnv'])->name('database.save');
     Route::get('complete', [InstallerController::class, 'complete'])->name('userdata');
     Route::post('complete', [InstallerController::class, 'insertFirstUserData'])->name('userdata.save');
+    Route::get('final-step', [InstallerController::class, 'finalStep'])->name('final-step');
     // Add more routes for other steps of the installation process
 });

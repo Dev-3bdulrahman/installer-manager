@@ -16,5 +16,11 @@
     "Database Name": "اسم قاعدة البيانات",
     "Database Username": "اسم مستخدم قاعدة البيانات",
     "Database Password": "كلمة مرور قاعدة البيانات",
-    "Configure Database": "تكوين قاعدة البيانات"
+    "Configure Database": "تكوين قاعدة البيانات",
+    "The End": "النهاية",
+    "I happy to helping you to install the  laravel application": "سعيد بمساعدتك في تثبيت تطبيق لارافيل",
+    "This Package is under development to add more features": "هذه الحزمة قيد التطوير لإضافة المزيد من الميزات",
+    "There are other paid packages to install some premium features": "هناك حزم مدفوعة أخرى لتثبيت بعض الميزات المتميزة",
+    "Visit my website": "زيارة موقعي",
+    "best regards": "مع أطيب التحيات"
 }

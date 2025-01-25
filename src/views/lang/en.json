@@ -1,4 +1,3 @@
-
 {
     "Congratulations!": "Congratulations!",
     "Welcome message": "Welcome to the Installer Manager",
@@ -17,5 +16,11 @@
     "Database Name": "Database Name",
     "Database Username": "Database Username",
     "Database Password": "Database Password",
-    "Configure Database": "Configure Database"
+    "Configure Database": "Configure Database",
+    "The End": "The End",
+    "I happy to helping you to install the  laravel application": "I happy to helping you to install the laravel application",
+    "This Package is under development to add more features": "This Package is under development to add more features",
+    "There are other paid packages to install some premium features": "There are other paid packages to install some premium features",
+    "Visit my website": "Visit my website",
+    "best regards": "best regards"
 }
