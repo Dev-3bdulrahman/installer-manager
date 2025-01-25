@@ -10,7 +10,7 @@ Route::group(['prefix' => 'install', 'middleware' => ['web'], 'as' => 'installer
     Route::get('requirements', [InstallerController::class, 'showRequirements'])->name('requirements');
     Route::get('database', [InstallerController::class, 'showDatabaseForm'])->name('database');
     Route::post('database', [InstallerController::class, 'configureDatabaseAndEnv'])->name('database.save');
-    Route::get('complete', [InstallerController::class, 'complate'])->name('userdata');
+    Route::get('complete', [InstallerController::class, 'complete'])->name('userdata');
     Route::post('complete', [InstallerController::class, 'insertFirstUserData'])->name('userdata.save');
     // Add more routes for other steps of the installation process
 });

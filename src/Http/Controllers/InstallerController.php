@@ -125,7 +125,7 @@ class InstallerController extends Controller
         }
     }
 
-    public function complate()
+    public function complete()
     {
         if (!$this->checkAppStatus('first_user_created')) {
             if (!$this->checkAppStatus('migrations_executed')) {
